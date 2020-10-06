@@ -15,3 +15,21 @@ Main Designated users are builders(us) and then clients (experienced sound engin
   4.2.  If mid tier model, user can access recordings in similar fashion but can record multiple at one time
   4.3.  If high tier model, user can see recordings on their computer as they are flying drones
 
+# Raspberry Pi Stuff
+## 0 and 4 stats
+https://www.raspberrypi.org/products/raspberry-pi-zero-w/
+pi 0 with wifi compatability
+802.11 b/g/n wireless LAN
+Bluetooth 4.1
+Bluetooth Low Energy BLE
+
+https://www.raspberrypi.org/products/raspberry-pi-4-model-b/
+pi 4 B
+2.4 GHz and 5.0 GHz IEEE 802.11ac wireless, Bluetooth 5.0, BLE
+
+## OS link
+https://www.raspberrypi.org/downloads/
+link to download raspberry pi OS to flash drive also includes flashing software
+
+## GPIOZERO is general GPIO library
+https://gpiozero.readthedocs.io/en/stable/
