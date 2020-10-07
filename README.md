@@ -33,3 +33,21 @@ link to download raspberry pi OS to flash drive also includes flashing software
 
 ## GPIOZERO is general GPIO library
 https://gpiozero.readthedocs.io/en/stable/
+
+# installing python
+First, update your repositories list:
+  
+    pi@raspberrypi:~$ sudo apt update
+
+Then install the package for Python 3:
+
+    pi@raspberrypi:~$ sudo apt install python3-gpiozero
+
+To use remote pins need pigpen
+
+    $ sudo apt install pigpio
+    
+https://gpiozero.readthedocs.io/en/stable/remote_gpio.html
+
+
+
