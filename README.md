@@ -49,5 +49,14 @@ To use remote pins need pigpen
     
 https://gpiozero.readthedocs.io/en/stable/remote_gpio.html
 
+# MIC
+looking around forums the popular option seems to be using flashdrive mics or I2S s but that seems lazy, looking around we might find a good A to D mic shell
+## I2S mems
+is actually a digital to digital mic but with libraries in article explains how it will work
+https://www.adafruit.com/product/3421
 
-
+# GPS
+Can be wired or flashdrived too depending on preference, Probably best to plan to use wired for both pi versions
+Worried about gps indoors interfearing with collection
+## Articles with libraries and tutorials
+https://maker.pro/raspberry-pi/tutorial/how-to-use-a-gps-receiver-with-raspberry-pi-4
