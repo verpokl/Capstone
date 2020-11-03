@@ -40,4 +40,7 @@ sudo cgps -s
 
 ## can try the following instead
 https://www.rhydolabz.com/wiki/?p=9557
+
 https://learn.adafruit.com/adafruit-ultimate-gps-on-the-raspberry-pi?view=all
+
+https://area-51.blog/2012/06/18/getting-gps-to-work-on-a-raspberry-pi/   has a cool map we might be able to use
