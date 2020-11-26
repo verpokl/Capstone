@@ -1,18 +1,22 @@
 ## Main function.
 
-#set up GPIO
 import RPi.GPIO as GPIO
 import time
-GPIO.setmode(GPIO.BCM)
-GPIO.setup(13,GPIO.IN) #button 
 
+# set up GPIO 13 as input
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(13,GPIO.IN) # RF button 
+
+# number of recordings saved
 recordingNum = 0
-startLoc = getLocation('false')
+# save starting location for calculations
+startLoc = getLocation()
 
 while 'true':
-    # if rf button activated
+    # if RF button activated
     if GPIO.input(13) == 1:
-        location, distance = getLocation('true')
+        # activate getLocation method that also calulates distance
+        loc, distance = getLocation(startLoc)
         audio, samples = record()
         filecreation(location, distance, recordingNum, audio, sampleRate)
         recordingNum += 1
