@@ -1,0 +1,27 @@
+Install p3
+$ sudo apt-get install python3-pip
+----------------------------------------------------------------
+Install GPS daemon (basically self maintained gps script)
+sudo apt-get install gpsd gpsd-clients
+
+Test if running you should see box with coord and other info
+cgps -s
+
+Install GPS libraries
+pip3 install gps
+----------------------------------------------------------------
+install gpio library
+sudo apt-get update
+
+sudo apt-get install rpi.gpio
+----------------------------------------------------------------
+install mpu
+$ pip install git+https://github.com/MartinThoma/mpu.git
+----------------------------------------------------------------
+enable raspi spi
+https://www.raspberrypi-spy.co.uk/2014/08/enabling-the-spi-interface-on-the-raspberry-pi/
+
+install ADC mcp3008
+    sudo apt-get update
+    sudo apt-get install build-essential python-dev python-smbus python-pip
+    sudo pip install adafruit-mcp3008
