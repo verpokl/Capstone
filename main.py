@@ -35,6 +35,7 @@ def main():
          # if RF button activated
         if GPIO.input(13) == 1:
             # activate getLocation method that also calulates distance
+            location, distance = getLocation(startLoc)
             audio, samples = record()
             filecreation(location, distance, recordingNum, audio, sampleRate)
             recordingNum += 1
