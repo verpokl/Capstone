@@ -5,20 +5,20 @@ import adafruit_mcp3xxx.mcp3008 as MCP
 from adafruit_mcp3xxx.analog_in import AnalogIn
 
 # create the spi bus
-spi = busio.SPI(clock=board.SCK, MISO=board.MISO, MOSI=board.MOSI)
+# clk at 135 kHz for 75 ksps
+spi = busio.SPI(135000, MISO=board.MISO, MOSI=board.MOSI)
 
-# create the cs (chip select)
+# chip select
 cs = digitalio.DigitalInOut(board.D5)
 
 # create the mcp object
 mcp = MCP.MCP3008(spi, cs)
 
-# create a differential ADC channel between Pin 0 and Pin 1
-chan = AnalogIn(mcp, MCP.P0, MCP.P1)
+# pull data from channel 7
+chan = AnalogIn(mcp, MCP.P7)
 
-print('Differential ADC Value: ', chan.value)
-print('Differential ADC Voltage: ' + str(chan.voltage) + 'V')
 class record:
     # general getlocation intended to create the starting location
     def record():
+        x = ((3.3/1024)*chan.value);
         
