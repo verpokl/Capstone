@@ -7,6 +7,10 @@ import RPi.GPIO as GPIO
 from gps import *
 import time
 import mpu
+import os
+from scipy.io.wavfile import write
+import csv
+
 # create the spi bus open bus and cs (bus, cs)
 # clk at 135 kHz for 75 ksps
 spi = spidev.SpiDev()
@@ -23,6 +27,7 @@ mcp = MCP3008(channel=7, clock_pin=11, mosi_pin=10, miso_pin=9, select_pin=8)
 # set up GPIO 13 as input
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(13,GPIO.IN) # RF button pin 13 is input 
+path = "/home/pi/archive/recordings/"
 
 # number of recordings saved
 recordingNum = 0
@@ -41,6 +46,17 @@ def main():
             recordingNum += 1
 if __name__ == '__main__':
     main()
+
+def filecreation(location, distance, recordingNum, audio, sampleRate):
+  timestr = time.strftime("%Y%m%d-%H%M%S")                       # "yyyymmdd-hhmmss"
+  os.mkdir(path, timestr)                                        # make path to /home/pi/archive/recordings/yyyymmdd-hhmmss
+  writ = [recordingNum, location, distance]                      # array with [recording number, location, and distance traveled]
+  
+  with open(path + timestr + "/distance.csv", 'w', newline='') as file:     # create csv file and write in data values
+    writer = csv.writer(file)                                    
+    writer.writerow(["SN", "Name", "Contribution"])
+  scale =  np.int16(audio/np.max(np.abs(audio)) * 32767)         # scaling audio recording data to convert to .wav
+  write(path + timestr + "/audio.wav", sampleRate, scaled)        # write .wav file in directory
 
 # general getlocation intended to create the starting location
 def getLocation(gps):
