@@ -35,7 +35,7 @@ def main():
     while 'true':                       # permanent loop ends when pi is shutdown
         if GPIO.input(13) == 1:         # if RF button activated
             location, distance = getLocation(startLoc)            # activate getLocation method that also calulates distance
-            audio, samples = record()                             
+            audio, samples = record(3)                             
             filecreation(location, distance, recordingNum, audio, sampleRate)
             recordingNum += 1
 if __name__ == '__main__':
