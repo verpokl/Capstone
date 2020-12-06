@@ -1,62 +1,33 @@
 # Capstone Drone DJ
-For 2020 Capstone project 
+For For ECE 4773 fall 2020
+I am using this readme as a user guide to the software. 
 
+## To set up the device please follow the softwareSetup.md documentation
 
-Main Designated users are builders(us) and then clients (experienced sound engineers)
-# Main steps of set up:
-1.  Boot Raspberry Pi with Raspberry Pi OS
-2.  Configure A to D pin and conncection for mic
-3.  Set up recording
-  3.1.  If cheaper model start recording sound as soon as user activates drone  
-  3.2.  If mid tier model configure remote activation of recording 
-  3.3.  If high tier model update user's computer with real time recording
-4.  Analyzing recording 
-  4.1.  If cheaper model, user brings in drone and connects to monitor or removes sd card to access recorded files
-  4.2.  If mid tier model, user can access recordings in similar fashion but can record multiple at one time
-  4.3.  If high tier model, user can see recordings on their computer as they are flying drones
+This software is intended to run on a raspberry pi that is attached to a drone and it intends to analiyze the sound at different parts of a venue
 
-# Raspberry Pi Stuff
-## 0 and 4 stats
-https://www.raspberrypi.org/products/raspberry-pi-zero-w/
-pi 0 with wifi compatability
-802.11 b/g/n wireless LAN
-Bluetooth 4.1
-Bluetooth Low Energy BLE
+# Start up
+Before starting up your recorder make sure to place it on the stage or from your source of sound.
 
-https://www.raspberrypi.org/products/raspberry-pi-4-model-b/
-pi 4 B
-2.4 GHz and 5.0 GHz IEEE 802.11ac wireless, Bluetooth 5.0, BLE
+As soon as you power up the raspberry pi, the main.py script will play automatically.
 
-## OS link
-https://www.raspberrypi.org/downloads/
-link to download raspberry pi OS to flash drive also includes flashing software
+The script will record the turn on location as the start location for calculations.
 
-## GPIOZERO is general GPIO library
-https://gpiozero.readthedocs.io/en/stable/
+After this has happened you (the user) will have to find raspberry pi via wifi on a a laptop once found input password provided by set up team
 
-# installing python
-First, update your repositories list:
+now you may fly the drone to a desired location to test sound, once there press the button on the remote that came with your kit, play your test sound on your speakers, and wait for 3 minutes.
+
+In the three minutes the sound has been recorded at the desired location.
+
+Users may access the recordings and distance from their PC and analyze sound based off recording.
+
+Users may repeat recordings or move to a new location and record
+
+Recordings are saved by time and within each recording users will find:
   
-    pi@raspberrypi:~$ sudo apt update
+  a recorded .wav file
+  a csv with recording number, location of recording, and distance from origin point
+  
+When done simply turn off Raspberry Pi. 
 
-Then install the package for Python 3:
-
-    pi@raspberrypi:~$ sudo apt install python3-gpiozero
-
-To use remote pins need pigpen
-
-    $ sudo apt install pigpio
-    
-https://gpiozero.readthedocs.io/en/stable/remote_gpio.html
-
-# MIC
-looking around forums the popular option seems to be using flashdrive mics or I2S s but that seems lazy, looking around we might find a good A to D mic shell
-## I2S mems
-is actually a digital to digital mic but with libraries in article explains how it will work
-https://www.adafruit.com/product/3421
-
-# GPS
-Can be wired or flashdrived too depending on preference, Probably best to plan to use wired for both pi versions
-Worried about gps indoors interfearing with collection
-## Articles with libraries and tutorials
-https://maker.pro/raspberry-pi/tutorial/how-to-use-a-gps-receiver-with-raspberry-pi-4
+When using drone again make sure to place infront of stage before starting up.
